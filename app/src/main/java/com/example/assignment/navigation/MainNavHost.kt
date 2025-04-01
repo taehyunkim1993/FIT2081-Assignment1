@@ -16,19 +16,19 @@ fun MainNavHost(navHostController: NavHostController, modifier: Modifier) {
     NavHost(navController = navHostController,
         startDestination = Routes.WELCOME.route) {
         composable(Routes.WELCOME.route) {
-            WelcomeScreen()
+            WelcomeScreen(navController = navHostController)
         }
         composable(Routes.LOGIN.route) {
-            LoginScreen()
+            LoginScreen(navController = navHostController)
         }
         composable(Routes.FOODINQ.route){
-            FoodInQScreen()
+            FoodInQScreen(navController = navHostController)
         }
         composable(Routes.HOME.route){
-            HomeScreen()
+            HomeScreen(navController = navHostController)
         }
         composable(Routes.INSIGHTS.route){
-            InsightsScreen()
+            InsightsScreen(navController = navHostController)
         }
     }
 }

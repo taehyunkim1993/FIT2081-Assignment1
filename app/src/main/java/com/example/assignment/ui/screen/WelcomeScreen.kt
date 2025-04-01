@@ -21,11 +21,13 @@ import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
+import androidx.navigation.NavHostController
 import com.example.assignment.R
+import com.example.assignment.navigation.Routes
 import com.example.assignment.ui.theme.Shapes
 
 @Composable
-fun WelcomeScreen() {
+fun WelcomeScreen(navController: NavHostController) {
     Column(modifier = Modifier.fillMaxSize()
         .padding(dimensionResource(R.dimen.padding_medium)),
         horizontalAlignment = Alignment.CenterHorizontally,
@@ -54,7 +56,7 @@ fun WelcomeScreen() {
         Spacer(modifier = Modifier.height(dimensionResource(R.dimen.padding_large)))
 //        Spacer(modifier = Modifier.weight(1f))
 
-        Button(onClick = {},
+        Button(onClick = { navController.navigate(Routes.LOGIN.route )},
             shape = Shapes.medium,
             modifier = Modifier.fillMaxWidth()
                 .height(dimensionResource(R.dimen.image_size_medium)),

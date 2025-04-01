@@ -41,10 +41,13 @@ android {
 
 dependencies {
     val nav_version = "2.8.9"
+    val lifecycle_version = "2.8.7"
 
-    // Jetpack Compose Integration
     implementation("androidx.navigation:navigation-compose:$nav_version")
     implementation("androidx.compose.ui:ui-text-google-fonts:1.7.8")
+    implementation("androidx.lifecycle:lifecycle-viewmodel-compose:$lifecycle_version")
+
+
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
