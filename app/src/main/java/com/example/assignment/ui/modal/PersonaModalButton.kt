@@ -34,7 +34,8 @@ fun PersonaModalButton(persona: Persona) {
     var showDialog by remember { mutableStateOf(false) }
 
     Button(onClick = { showDialog = true },
-        shape = Shapes.small
+        shape = Shapes.small,
+        modifier = Modifier.fillMaxWidth()
     ) {
         Text(text = persona.value,
             style = MaterialTheme.typography.labelLarge)

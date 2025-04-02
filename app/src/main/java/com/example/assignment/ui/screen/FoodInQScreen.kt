@@ -143,7 +143,9 @@ fun FoodInQScreen(navController: NavHostController) {
                     verticalAlignment = Alignment.CenterVertically
                 ) {
                     rowPersona.forEach { persona ->
+                        Box(modifier = Modifier.weight(1f)) {
                             PersonaModalButton(persona)
+                        }
                     }
                 }
             }
