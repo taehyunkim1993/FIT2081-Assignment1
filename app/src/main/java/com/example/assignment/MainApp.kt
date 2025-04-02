@@ -10,6 +10,7 @@ import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import com.example.assignment.navigation.MainNavHost
 import com.example.assignment.navigation.Routes
+import com.example.assignment.ui.layout.FoodInQTopBar
 
 @Composable
 fun MainApp() {
@@ -18,6 +19,11 @@ fun MainApp() {
         .value?.destination?.route
 
     Scaffold(modifier = Modifier.fillMaxSize(),
+        topBar = {
+            if (currentRoute == Routes.FOODINQ.route) {
+                FoodInQTopBar(navController)
+            }
+        },
         bottomBar = {
             if (currentRoute == Routes.HOME.route ||
                 currentRoute == Routes.INSIGHTS.route){

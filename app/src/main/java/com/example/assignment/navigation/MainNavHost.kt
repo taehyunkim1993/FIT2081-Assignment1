@@ -14,7 +14,8 @@ import com.example.assignment.ui.screen.WelcomeScreen
 @Composable
 fun MainNavHost(navHostController: NavHostController, modifier: Modifier) {
     NavHost(navController = navHostController,
-        startDestination = Routes.WELCOME.route) {
+        startDestination = Routes.WELCOME.route,
+        modifier = modifier) {
         composable(Routes.WELCOME.route) {
             WelcomeScreen(navController = navHostController)
         }

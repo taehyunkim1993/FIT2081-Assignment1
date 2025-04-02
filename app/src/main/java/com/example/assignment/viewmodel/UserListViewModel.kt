@@ -60,4 +60,10 @@ class UserListViewModel(private val userListRepository: UserListRepository): Vie
         }
     }
 
+    fun clearValidation() {
+        viewModelScope.launch {
+            _validationResult.value = null
+        }
+    }
+
 }

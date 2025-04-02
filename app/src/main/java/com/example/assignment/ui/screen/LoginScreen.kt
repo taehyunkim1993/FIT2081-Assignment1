@@ -140,6 +140,7 @@ fun LoginScreen(navController: NavHostController,
         if (validationResult != null) {
             if (validationResult == true) {
                 navController.navigate(Routes.FOODINQ.route)
+                viewModel.clearValidation()
             } else {
                 Text(text = "Please check your details.",
                     color = MaterialTheme.colorScheme.error)
