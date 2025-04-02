@@ -13,7 +13,7 @@ fun TimePickerDialogHelper(selectedTime: MutableState<String>, showTimePicker: M
         {_, hourOfDay, minute ->
             selectedTime.value = "$hourOfDay:$minute"
         },
-        calendar.get(Calendar.HOUR_OF_DAY), calendar.get(Calendar.MINUTE), true)
+        calendar.get(Calendar.HOUR_OF_DAY), calendar.get(Calendar.MINUTE), false)
 
     timePickerDialog.setOnDismissListener {
         showTimePicker.value = false

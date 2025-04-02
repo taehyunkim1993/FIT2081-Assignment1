@@ -1,7 +1,5 @@
 package com.example.assignment.ui.screen
 
-import android.content.Context
-import android.content.SharedPreferences
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -16,10 +14,8 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Add
 import androidx.compose.material.icons.filled.DateRange
 import androidx.compose.material.icons.filled.KeyboardArrowDown
-import androidx.compose.material.icons.outlined.Send
 import androidx.compose.material3.Button
 import androidx.compose.material3.Checkbox
 import androidx.compose.material3.DropdownMenuItem
@@ -42,6 +38,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.dimensionResource
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.navigation.NavHostController
@@ -292,13 +289,16 @@ fun FoodInQScreen(navController: NavHostController) {
                     saveStringToPref(context, "timePref", "timeSleep" ,timeSleep.value)
                     saveStringToPref(context, "timePref", "timeWakeup" ,timeWakeup.value)
                     navController.navigate(Routes.HOME.route) },
-                    modifier = Modifier.padding(dimensionResource(R.dimen.padding_medium))
+                    modifier = Modifier.padding(dimensionResource(R.dimen.padding_large))
                         .width(dimensionResource(R.dimen.button_width_large))
-                        .height(dimensionResource(R.dimen.button_height_small)),
+                        .height(dimensionResource(R.dimen.button_height_sm)),
                     shape = Shapes.small) {
-                    Icon(imageVector = Icons.Default.Add, contentDescription = "Save")
-                    Spacer(Modifier.width(dimensionResource(R.dimen.padding_small)))
-                    Text("Save", style = MaterialTheme.typography.bodyMedium)
+                    Row(verticalAlignment = Alignment.CenterVertically) {
+                        Icon(painter= painterResource(R.drawable.save), contentDescription = "Save",
+                            modifier = Modifier.size(dimensionResource(R.dimen.icon_small)))
+                        Spacer(Modifier.width(dimensionResource(R.dimen.padding_medium)))
+                        Text("Save", style = MaterialTheme.typography.bodyLarge)
+                    }
                 }
             }
         }

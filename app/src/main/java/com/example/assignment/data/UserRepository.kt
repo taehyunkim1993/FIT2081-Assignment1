@@ -3,7 +3,7 @@ package com.example.assignment.data
 import android.content.Context
 import com.example.assignment.model.User
 
-class UserListRepository(val context: Context) {
+class UserRepository(val context: Context) {
 
     val userList: List<User> by lazy {
         parseUsersFromCSV()
@@ -32,5 +32,9 @@ class UserListRepository(val context: Context) {
 
     fun validateUser(id: String, phoneNumber: String): Boolean {
         return userList.any { it.id == id && it.phoneNumber == phoneNumber }
+    }
+
+    fun getUserWithUserId(id: String): User? {
+        return userList.find { it.id == id }
     }
 }

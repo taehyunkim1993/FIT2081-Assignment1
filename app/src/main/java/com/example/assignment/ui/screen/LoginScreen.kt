@@ -1,5 +1,6 @@
 package com.example.assignment.ui.screen
 
+import android.util.Log
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -25,15 +26,13 @@ import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavHostController
-import com.example.assignment.viewmodel.UserListViewModel
+import com.example.assignment.viewmodel.UserViewModel
 import androidx.compose.runtime.getValue // Important for the 'by' keyword
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
-import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.text.font.FontWeight
 import com.example.assignment.R
@@ -46,17 +45,16 @@ import com.example.assignment.navigation.Routes
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun LoginScreen(navController: NavHostController,
-                viewModel: UserListViewModel = viewModel(
-                    factory = UserListViewModel.Factory(context = LocalContext.current))) {
-    val userList by viewModel.userList.collectAsState()
-    val userListLoading by viewModel.isLoading.collectAsState()
+                userViewModel: UserViewModel) {
+    val userList by userViewModel.userList.collectAsState()
+    val userListLoading by userViewModel.isLoading.collectAsState()
 
     var expanded by remember { mutableStateOf(false) }
 
     var selectedUserId by rememberSaveable { mutableStateOf("") }
     var inputPhoneNumber by rememberSaveable { mutableStateOf("") }
 
-    val validationResult by viewModel.validationResult.collectAsState()
+    val validationResult by userViewModel.validationResult.collectAsState()
 
     LaunchedEffect(key1 = userListLoading) {
         if (!userListLoading && userList.isNotEmpty()) {
@@ -124,7 +122,7 @@ fun LoginScreen(navController: NavHostController,
 
         Spacer(modifier = Modifier.height(dimensionResource(R.dimen.padding_large)))
 
-        Button(onClick = { viewModel.validateUser(id = selectedUserId,
+        Button(onClick = { userViewModel.validateUser(id = selectedUserId,
             phoneNumber = inputPhoneNumber)},
             modifier = Modifier.fillMaxWidth()
                 .height(dimensionResource(R.dimen.image_size_medium)),
@@ -139,8 +137,9 @@ fun LoginScreen(navController: NavHostController,
 
         if (validationResult != null) {
             if (validationResult == true) {
+                userViewModel.updateCurrentUser(selectedUserId)
                 navController.navigate(Routes.FOODINQ.route)
-                viewModel.clearValidation()
+                userViewModel.clearValidation()
             } else {
                 Text(text = "Please check your details.",
                     color = MaterialTheme.colorScheme.error)

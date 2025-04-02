@@ -11,9 +11,15 @@
     <dimen name="button_width_small">48dp</dimen>
     <dimen name="button_height_small">36dp</dimen>
 
+    <dimen name="button_height_sm">48dp</dimen>
+
     <dimen name="button_width_medium">96dp</dimen>
     <dimen name="button_height_medium">72dp</dimen>
 
     <dimen name="button_width_large">144dp</dimen>
     <dimen name="button_height_large">108dp</dimen>
+
+    <dimen name="icon_small">16dp</dimen>
+    <dimen name="icon_medium">24dp</dimen>
+    <dimen name="icon_large">32dp</dimen>
 </resources>
