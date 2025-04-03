@@ -16,6 +16,8 @@
     <dimen name="button_width_medium">96dp</dimen>
     <dimen name="button_height_medium">72dp</dimen>
 
+    <dimen name="button_width_ml">120dp</dimen>
+
     <dimen name="button_width_large">144dp</dimen>
     <dimen name="button_height_large">108dp</dimen>
 

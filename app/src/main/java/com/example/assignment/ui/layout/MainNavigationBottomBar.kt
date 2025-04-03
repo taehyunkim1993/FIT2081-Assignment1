@@ -29,8 +29,8 @@ fun MainNavigationBottomBar(navController: NavHostController) {
     val navItems: List<BottomNavItem> = listOf(
         BottomNavItem(Routes.HOME.route, "Home", R.drawable.home),
         BottomNavItem(Routes.INSIGHTS.route, "Insights", R.drawable.insight),
-        BottomNavItem("nutricoach", "NutriCoach", R.drawable.coach),
-        BottomNavItem("settings", "Settings", R.drawable.setting)
+        BottomNavItem(Routes.NUTRICOACH.route, "NutriCoach", R.drawable.coach),
+        BottomNavItem(Routes.SETTINGS.route, "Settings", R.drawable.setting)
     )
 
     NavigationBar {

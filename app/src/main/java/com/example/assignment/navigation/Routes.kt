@@ -5,5 +5,7 @@ enum class Routes(val route: String) {
     LOGIN("login"),
     FOODINQ("foodinq"),
     HOME("home"),
-    INSIGHTS("insights")
+    INSIGHTS("insights"),
+    NUTRICOACH("nutricoach"),
+    SETTINGS("settings")
 }

@@ -11,6 +11,8 @@ import com.example.assignment.ui.screen.FoodInQScreen
 import com.example.assignment.ui.screen.HomeScreen
 import com.example.assignment.ui.screen.InsightsScreen
 import com.example.assignment.ui.screen.LoginScreen
+import com.example.assignment.ui.screen.NutriCoachScreen
+import com.example.assignment.ui.screen.SettingsScreen
 import com.example.assignment.ui.screen.WelcomeScreen
 import com.example.assignment.viewmodel.UserViewModel
 
@@ -35,7 +37,13 @@ fun MainNavHost(navHostController: NavHostController, modifier: Modifier) {
             HomeScreen(navController = navHostController, userViewModel)
         }
         composable(Routes.INSIGHTS.route){
-            InsightsScreen(navController = navHostController)
+            InsightsScreen(navController = navHostController, userViewModel)
+        }
+        composable(Routes.NUTRICOACH.route){
+            NutriCoachScreen(navController = navHostController)
+        }
+        composable(Routes.SETTINGS.route){
+            SettingsScreen(navController = navHostController)
         }
     }
 }

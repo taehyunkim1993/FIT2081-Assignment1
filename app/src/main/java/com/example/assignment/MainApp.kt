@@ -26,7 +26,9 @@ fun MainApp() {
         },
         bottomBar = {
             if (currentRoute == Routes.HOME.route ||
-                currentRoute == Routes.INSIGHTS.route){
+                currentRoute == Routes.INSIGHTS.route ||
+                currentRoute == Routes.NUTRICOACH.route ||
+                currentRoute == Routes.SETTINGS.route){
                 MainNavigationBottomBar(navController = navController)
             }
         }){
